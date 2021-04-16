@@ -1,0 +1,31 @@
+site_name: Django Simplify
+repo_url: https://github.com/tushortz/django-simplify
+repo_name: Github
+site_description: Django simplify provides Ruby on Rails-like command line functionalities, models and helper functions so you can focus on development and removes the pain of repeating frequent actions.
+site_author: Taiwo Kareem
+theme:
+  name: "mkdocs"
+  favicon: "static/favicon/favicon.ico"
+  logo:
+    icon: "home"
+  palette:
+    primary: "blue grey"
+    accent: "blue"
+  font:
+    text: "IBM Plex Serif"
+    code: "IBM Plex Mono"
+markdown_extensions:
+  - toc:
+      permalink: "#"
+  - smarty
+  - admonition
+  - footnotes
+  - codehilite
+extra:
+  social:
+    - type: "github"
+      link: "https://github.com/tushortz"
+    - type: "twitter"
+      link: "https://twitter.com/taiwo_krm"
+    - type: "linkedin"
+      link: "https://linkedin.com/in/taiwokrm"

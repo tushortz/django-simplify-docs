@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Django simplify provides Ruby on Rails-like command line functionalities, models and helper functions so you can focus on development and removes the pain of repeating frequent actions.">
+        <meta name="author" content="Taiwo Kareem">
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>Django Simplify</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">Django Simplify</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/tushortz/django-simplify/edit/master/docs/index.md" class="nav-link">Edit on Github</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#django-simplify" class="nav-link">Django Simplify</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#introduction" class="nav-link">Introduction</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#requirements" class="nav-link">Requirements</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#installation" class="nav-link">Installation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#features" class="nav-link">Features</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#todo" class="nav-link">Todo</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#acknowledgements" class="nav-link">Acknowledgements</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="django-simplify">Django Simplify<a class="headerlink" href="#django-simplify" title="Permanent link">#</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
+<p>Django simplify provides Ruby on Rails-like command line functionalities, models and helper functions so you can focus on development and removes the pain of repeating frequent actions.</p>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h2>
+<ul>
+<li>Python <code>3.6</code> and above</li>
+<li>Django (tested with 3.1, probably works with any version that supports
+    Python 3)</li>
+</ul>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
+<p><strong>django-simplify</strong> can be installed via pip.</p>
+<div class="codehilite"><pre><span></span><code>$ pip install django-simplify
+</code></pre></div>
+
+<p>Then just add <code>simplify</code> to your <code>INSTALLED_APPS</code>.</p>
+<p>Below are several example commands you can run.</p>
+<div class="codehilite"><pre><span></span><code>$ python manage.py create_app &lt;app_name&gt;
+</code></pre></div>
+
+<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">#</a></h2>
+<ul>
+<li>timestamp for every model</li>
+<li>alphabetic filter for admin</li>
+<li>model, view, template and url route generator</li>
+<li>automatic import</li>
+</ul>
+<h3 id="helper-models">Helper models<a class="headerlink" href="#helper-models" title="Permanent link">#</a></h3>
+<ul>
+<li>
+<p>simplify.helpers.model_helper.TimeBasedModel</p>
+<ul>
+<li>Provides the <code>created_at</code> and <code>updated_at</code> fields for timestamp</li>
+</ul>
+</li>
+<li>
+<p>simplify.helpers.model_helper.NamedTimeBasedModel</p>
+<ul>
+<li>Provides the <code>name</code>, <code>created_at</code> and <code>updated_at</code> fields.</li>
+</ul>
+</li>
+<li>
+<p>simplify.helpers.admin_helper.AlphaNumericFilterAdmin</p>
+<ul>
+<li>when subclassed, it allows the items to be filtered alphabetically by either A-Z or 0-9</li>
+<li><strong>Note</strong>: for this to work, you must specify values for <code>alphanumeric_filter</code> in the model admin.</li>
+</ul>
+</li>
+</ul>
+<h4 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="c1"># models.py</span>
+<span class="kn">from</span> <span class="nn">simplify.helpers.model_helper</span> <span class="kn">import</span> <span class="n">TimeBasedModel</span><span class="p">,</span> <span class="n">NamedTimeBasedModel</span>
+
+<span class="k">class</span> <span class="nc">MyModel</span><span class="p">(</span><span class="n">TimeBasedModel</span><span class="p">):</span>
+    <span class="n">extra_fields</span> <span class="o">=</span> <span class="o">....</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># admin.py</span>
+<span class="kn">from</span> <span class="nn">simplify.helpers.admin_helper</span> <span class="kn">import</span> <span class="n">AlphaNumericFilterAdmin</span>
+
+<span class="k">class</span> <span class="nc">MemberAdmin</span><span class="p">(</span><span class="n">AlphaNumericFilterAdmin</span><span class="p">):</span>
+    <span class="n">alphanumeric_filter</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="s2">&quot;last_name&quot;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="c1"># this part is what creates the filter</span>
+    <span class="n">list_filter</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name&#39;</span><span class="p">,]</span>
+</code></pre></div>
+
+<h3 id="management-commands">Management commands<a class="headerlink" href="#management-commands" title="Permanent link">#</a></h3>
+<p><strong>1. create_app</strong></p>
+<ul>
+<li>automatically adds a <code>urls.py</code> file after app is created.</li>
+<li>adds newly created app in the settings.py file under <code>INSTALLED_APPS</code></li>
+<li>creates <code>index</code>, <code>edit</code>, <code>create</code> and <code>detail</code> view and respective templates</li>
+<li>adds the app route to your project&rsquo;s <code>urls.py</code> file</li>
+</ul>
+<h4 id="usage_1">Usage<a class="headerlink" href="#usage_1" title="Permanent link">#</a></h4>
+<div class="codehilite"><pre><span></span><code>$ python manage.py create_app &lt;app_name&gt;
+</code></pre></div>
+
+<p><strong>2. create_model</strong></p>
+<p>Creates a model and their respective fields. the following types maps to respective Django model fields. It will also add the app to the django admin too.</p>
+<ul>
+<li>121, o2o or set -&gt; OneToOneField</li>
+<li>bool -&gt; BooleanField</li>
+<li>date -&gt; DateField</li>
+<li>datetime or dt -&gt; DateTimeField</li>
+<li>dict or m2m -&gt; ManyToManyField</li>
+<li>email -&gt; EmailField</li>
+<li>file -&gt; FileField</li>
+<li>list or fk -&gt; ForeignKey</li>
+<li>float -&gt; FloatField</li>
+<li>dec -&gt; DecimalField</li>
+<li>img or image -&gt; ImageField</li>
+<li>int -&gt; IntegerField</li>
+<li>str or char -&gt; CharField</li>
+<li>txt or text -&gt; TextField</li>
+</ul>
+<h4 id="usage_2">Usage<a class="headerlink" href="#usage_2" title="Permanent link">#</a></h4>
+<div class="codehilite"><pre><span></span><code>$ python manage.py create_app &lt;app_name&gt; &lt;model_name&gt; field_name:type field_name:type ... 
+</code></pre></div>
+
+<h4 id="an-example">an example<a class="headerlink" href="#an-example" title="Permanent link">#</a></h4>
+<div class="codehilite"><pre><span></span><code>$ python manage.py create_app member Member first_name:text last_name:text age:int
+</code></pre></div>
+
+<p>will generate the following code in the <code>member/models.py</code> file</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Member</span><span class="p">(</span><span class="n">TimeBasedModel</span><span class="p">):</span>
+    <span class="n">first_name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">last_name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">first_name</span>
+</code></pre></div>
+
+<blockquote>
+<p><strong>note</strong> The command uses the first specified field as the <code>__str__</code> default.</p>
+</blockquote>
+<h3 id="specifying-relationships">Specifying relationships<a class="headerlink" href="#specifying-relationships" title="Permanent link">#</a></h3>
+<p>Specifying <code>ForeignKey</code>, <code>OneToOneField</code> or <code>ManyToManyField</code> is quite easy. just add an <code>=&lt;related_model&gt;</code>. See example</p>
+<div class="codehilite"><pre><span></span><code>$ python manage.py create_app &lt;app_name&gt; &lt;model_name&gt; field_name:type<span class="o">=</span>related_model
+</code></pre></div>
+
+<p>if the related model is in the same models.py file, specify it as app_name.Model</p>
+<div class="codehilite"><pre><span></span><code>$ python manage.py create_app author Author name:char books:fk<span class="o">=</span>Book <span class="c1"># or   </span>
+$ python manage.py create_app author Author name:char books:fk<span class="o">=</span>author.Book 
+</code></pre></div>
+
+<p>if in a different app. (say book model), obviously you should be able to substitute fk with m2m, o2o, 121</p>
+<div class="codehilite"><pre><span></span><code>$ python manage.py create_app author Author name:char books:fk<span class="o">=</span>book.Book 
+</code></pre></div>
+
+<p>will create the following</p>
+<div class="codehilite"><pre><span></span><code>class Author<span class="o">(</span>TimeBasedModel<span class="o">)</span>:
+    <span class="nv">name</span> <span class="o">=</span> models.CharField<span class="o">(</span><span class="nv">max_length</span><span class="o">=</span><span class="m">50</span><span class="o">)</span>
+    <span class="nv">books</span> <span class="o">=</span> models.ForeignKey<span class="o">(</span><span class="s1">&#39;book.Book&#39;</span>, <span class="nv">on_delete</span><span class="o">=</span>models.CASCADE<span class="o">)</span>
+
+    def __str__<span class="o">(</span>self<span class="o">)</span>:
+        <span class="k">return</span> self.name
+</code></pre></div>
+
+<p><strong>3. create_view</strong></p>
+<p>Creates a view, generate its respective template and adds the path in the urls.py file</p>
+<h3 id="usage_3">Usage<a class="headerlink" href="#usage_3" title="Permanent link">#</a></h3>
+<div class="codehilite"><pre><span></span><code>$ python manage.py create_view &lt;app_name&gt; &lt;view_name&gt; 
+</code></pre></div>
+
+<h4 id="example">example<a class="headerlink" href="#example" title="Permanent link">#</a></h4>
+<div class="codehilite"><pre><span></span><code>$ python manage.py create_view member MemberDetail
+</code></pre></div>
+
+<h2 id="todo">Todo<a class="headerlink" href="#todo" title="Permanent link">#</a></h2>
+<ul>
+<li>add more helper functions</li>
+<li>add documentation</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong>: This is still in early development mode. might have bugs. It works fine if you write good code and follow the django style of development. Please fork the project to make contributions</p>
+</blockquote>
+<h2 id="acknowledgements">Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permanent link">#</a></h2>
+<p>I&rsquo;d like to say a big thank you to God without which this wouldn&rsquo;t be possible. I would also like to say thanks to everyone who has and will contribute to this in the future.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.1.2
+Build Date UTC : 2021-04-15 23:49:28.516207+00:00
+-->
